@@ -41,12 +41,7 @@ const getUsers = async (): Promise<User[]> => {
 
 
 function App() {
-  const { data, isLoading, error } = useQuery<User[]>('users', getUsers, {
-    initialData: JSON.parse(localStorage.getItem('users') || '[]'),
-    onSuccess: (data) => {
-      localStorage.setItem('users', JSON.stringify(data));
-    },
-  });
+  const { data, isLoading, error } = useQuery<User[]>('users', getUsers);
 
 
   if (isLoading) {
